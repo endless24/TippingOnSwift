@@ -6,3 +6,10 @@
 //
 
 import Foundation
+
+struct MenuItem{
+    let name: String
+    let price: Double
+    let img: String
+    var quantity: Int = 0
+}

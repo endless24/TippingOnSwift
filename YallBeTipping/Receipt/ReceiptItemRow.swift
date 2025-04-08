@@ -8,16 +8,29 @@
 import UIKit
 
 class ReceiptItemRow: UITableViewCell {
+    
+    static let id = "ReceiptItemRow"
 
+    @IBOutlet private weak var nameLabel: UILabel!
+    @IBOutlet private weak var qtyLabel: UILabel!
+    @IBOutlet private weak var priceLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+    
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
-
+    
+    func configure(item:MenuItem){
+        nameLabel.text = item.name
+        qtyLabel.text = "x\(item.quantity)"
+        let qty = Double(item.quantity)
+        let totalPrice = qty * item.price
+        priceLabel.text = totalPrice.toCurrency()
+        
+    }
 }

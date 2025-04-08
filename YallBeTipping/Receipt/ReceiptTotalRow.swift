@@ -8,16 +8,23 @@
 import UIKit
 
 class ReceiptTotalRow: UITableViewCell {
-
+    
+    static let id = "ReceiptTotalRow"
+    
+    @IBOutlet private weak var totalLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
     }
 
+    func configure(total: Double){
+        totalLabel.text = total.toCurrency()
+    }
+    
 }
